@@ -1,0 +1,153 @@
+GetAlunoRequest | localhost:8080/aluno/1
+
+Response: {
+	"id": 1,
+	"nome": "vitor rafael",
+	"cpf": "111.222.333-44",
+	"matricula": 20213332,
+	"genero": "masculino",
+	"curso": "engenharia-elétrica",
+	"dataNascimento": "1998-09-23T00:00:00.000+00:00",
+	"status": true
+}
+
+GetAllAlunoRequest | localhost:8080/aluno
+
+Response: [
+	{
+		"id": 1,
+		"nome": "vitor rafael",
+		"cpf": "111.222.333-44",
+		"matricula": 20213332,
+		"genero": "masculino",
+		"curso": "engenharia-elétrica",
+		"dataNascimento": "1998-09-23T00:00:00.000+00:00",
+		"status": true
+	},
+	{
+		"id": 2,
+		"nome": "lucas morais",
+		"cpf": "111.222.223-44",
+		"matricula": 111,
+		"genero": "masculino",
+		"curso": "ti",
+		"dataNascimento": "2000-01-27T00:00:00.000+00:00",
+		"status": true
+	}
+]
+
+GetProfessorRequest | localhost:8080/professor/2
+
+Response: {
+	"id": 2,
+	"nome": "lucas morais",
+	"cpf": "111.222.223-44",
+	"matricula": 111,
+	"genero": "masculino",
+	"departamento": "imd",
+	"dataNascimento": "2000-01-27T00:00:00.000+00:00",
+	"salario": 2800.0,
+	"disciplinaAssociada": "lp2",
+	"status": false
+}
+
+GetAllProfessorRequest | localhost:8080/professor
+
+Response: [
+	{
+		"id": 52,
+		"nome": "lucas morais",
+		"cpf": "111.222.223-44",
+		"matricula": 111,
+		"genero": "masculino",
+		"departamento": "imd",
+		"dataNascimento": "2000-01-27T00:00:00.000+00:00",
+		"salario": 2800.0,
+		"disciplinaAssociada": "edb2",
+		"status": true
+	},
+	{
+		"id": 102,
+		"nome": "lucas morais",
+		"cpf": "111.222.223-44",
+		"matricula": 111,
+		"genero": "masculino",
+		"departamento": "imd",
+		"dataNascimento": "2000-01-27T00:00:00.000+00:00",
+		"salario": 2800.0,
+		"disciplinaAssociada": "edb2",
+		"status": true
+	}
+]
+
+PostAlunoRequest | localhost:8080/aluno
+
+{
+	"nome":"lucas morais",
+	"cpf":"111.222.223-44",
+	"matricula":111,
+	"genero":"masculino",
+	"curso":"ti",
+	"dataNascimento":"2000-01-27"
+}
+
+PostProfessorRequest | localhost:8080/professor
+
+{
+	"nome":"lucas morais",
+	"cpf":"111.222.223-44",
+	"matricula":111,
+	"genero":"masculino",
+	"departamento":"imd",
+	"dataNascimento":"2000-01-27",
+	"salario":2800,
+	"disciplinaAssociada":"edb2"
+}
+
+PutAlunoRequest | localhost:8080/aluno/1
+
+{
+ 	"matricula": 20213332
+}
+
+PutProfessorRequest | localhost:8080/professor/2
+
+{
+	"disciplinaAssociada":"lp2"
+}
+
+DeleteAlunoRequest | localhost:8080/aluno/1
+
+Response: Student deleted successfully!
+
+DeleteProfessorRequest | localhost:8080/professor/2
+
+Response: Teacher deleted successfully!
+
+LogicDeleteAlunoRequest | localhost:8080/aluno/inactivate/2
+
+Response: {
+	"id": 2,
+	"nome": "lucas morais",
+	"cpf": "111.222.223-44",
+	"matricula": 111,
+	"genero": "masculino",
+	"curso": "ti",
+	"dataNascimento": "2000-01-27T00:00:00.000+00:00",
+	"status": false
+}
+
+LogicDeleteProfessorRequest | localhost:8080/professor/inactivate/2
+
+Response: {
+	"id": 2,
+	"nome": "lucas morais",
+	"cpf": "111.222.223-44",
+	"matricula": 111,
+	"genero": "masculino",
+	"departamento": "imd",
+	"dataNascimento": "2000-01-27T00:00:00.000+00:00",
+	"salario": 2800.0,
+	"disciplinaAssociada": "lp2",
+	"status": false
+}
