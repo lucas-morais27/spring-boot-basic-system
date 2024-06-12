@@ -1,6 +1,6 @@
 package com.syscrud.web2.controller;
 
-import com.syscrud.web2.DTO.professorDTO;
+import com.syscrud.web2.dto.professorDTO;
 import com.syscrud.web2.model.ProfessorEntity;
 import com.syscrud.web2.repository.ProfessorRepository;
 import org.springframework.beans.BeanUtils;

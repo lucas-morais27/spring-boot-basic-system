@@ -1,4 +1,4 @@
-package com.syscrud.web2.DTO;
+package com.syscrud.web2.dto;
 import com.syscrud.web2.model.ProfessorEntity;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;

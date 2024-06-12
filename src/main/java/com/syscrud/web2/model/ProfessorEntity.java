@@ -1,11 +1,12 @@
 package com.syscrud.web2.model;
 
-import com.syscrud.web2.DTO.professorDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.Date;
+
+import com.syscrud.web2.dto.professorDTO;
 
 @Entity
 @Table(name="professores")

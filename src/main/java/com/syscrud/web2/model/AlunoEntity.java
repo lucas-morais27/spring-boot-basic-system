@@ -1,6 +1,5 @@
 package com.syscrud.web2.model;
 
-import com.syscrud.web2.DTO.alunoDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.Date;
+
+import com.syscrud.web2.dto.alunoDTO;
 
 @Entity
 @Table(name="alunos")
