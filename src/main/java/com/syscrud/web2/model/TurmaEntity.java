@@ -1,6 +1,8 @@
 package com.syscrud.web2.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.syscrud.web2.dto.alunoDTO;
+import com.syscrud.web2.dto.turmaDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,5 +42,21 @@ public class TurmaEntity {
 
     public void setProfessorDisciplina(ProfessorEntity professor) {
         this.professor = professor;
+    }
+
+    public void filterEmptyFields(turmaDTO turma) {
+        if (turma.nome() != null && !turma.nome().isEmpty()) {
+            this.nome = turma.nome();
+        }
+        if (turma.codigo() != null && !turma.codigo().isEmpty()) {
+            this.codigo = turma.codigo();
+        }
+        if (turma.alunos() != null && !turma.alunos().isEmpty()) {
+            this.alunos = turma.alunos();
+        }
+        if (turma.professorDisciplina() != null) {
+            this.professor = turma.professorDisciplina();
+        }
+
     }
 }

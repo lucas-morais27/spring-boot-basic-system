@@ -57,7 +57,7 @@ public class TurmaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<TurmaEntity> putTurma(@PathVariable Long id, @RequestBody turmaDTO turmaDTO) {
-        Optional<TurmaEntity> turmaAtualizada = turmaService.updateTurma(id, turmaDTO);
+        Optional<TurmaEntity> turmaAtualizada = Optional.ofNullable(turmaService.updateTurma(id, turmaDTO));
         return turmaAtualizada.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 

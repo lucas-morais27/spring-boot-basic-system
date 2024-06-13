@@ -1,5 +1,6 @@
 package com.syscrud.web2.service;
 
+import com.syscrud.web2.dto.alunoDTO;
 import com.syscrud.web2.dto.turmaDTO;
 import com.syscrud.web2.model.TurmaEntity;
 
@@ -21,7 +22,7 @@ public interface TurmaService {
 
     Optional<TurmaEntity> inactivateTurma(Long id);
 
-    Optional<TurmaEntity> updateTurma(Long id, turmaDTO turmaDTO);
+    TurmaEntity updateTurma(Long id, turmaDTO turmaDTO);
 
     void deleteTurma(Long id);
 

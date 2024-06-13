@@ -1,5 +1,6 @@
 package com.syscrud.web2.service;
 
+import com.syscrud.web2.dto.alunoDTO;
 import com.syscrud.web2.dto.turmaDTO;
 import com.syscrud.web2.exceptions.ResourceNotFoundException;
 import com.syscrud.web2.model.AlunoEntity;
@@ -46,12 +47,14 @@ public class TurmaServiceImpl implements TurmaService {
     }
 
     @Override
-    public Optional<TurmaEntity> updateTurma(Long id, turmaDTO turmaDTO) {
-        return turmaRepository.findById(id)
-                .map(turmaExistente -> {
-                    BeanUtils.copyProperties(turmaDTO, turmaExistente);
-                    return turmaRepository.save(turmaExistente);
-                });
+    public TurmaEntity updateTurma(Long id, turmaDTO turmaDTO) {
+        Optional<TurmaEntity> existingTurma = turmaRepository.findById(id);
+        if (existingTurma.isPresent()) {
+            TurmaEntity turmaEntity = existingTurma.get();
+            turmaEntity.filterEmptyFields(turmaDTO);
+            return turmaRepository.save(turmaEntity);
+        }
+        return null; // Or throw an exception
     }
 
     @Override

@@ -151,3 +151,117 @@ Response: {
 	"disciplinaAssociada": "lp2",
 	"status": false
 }
+
+
+PostTurma | localhost:8080/turma
+
+{
+  "nome": "Turma D",
+  "codigo": "TD2024"
+}
+
+Response:
+
+{
+	"id": 152,
+	"nome": "Turma D",
+	"codigo": "TD2024",
+	"alunos": null,
+	"professor": null,
+	"status": true
+}
+
+GetTurma | localhost:8080/turma/152
+
+{
+	"id": 152,
+	"nome": "Turma D",
+	"codigo": "TD2024",
+	"alunos": [],
+	"professor": null
+}
+
+PutTurma | localhost:8080/turma/152
+
+{
+  "codigo": "TA2000"
+}
+
+Response: 
+
+{
+	"id": 152,
+	"nome": "Turma D",
+	"codigo": "TA2000",
+	"alunos": [],
+	"professor": null,
+	"status": true
+}
+
+AssociarProfessor | localhost:8080/turma/102/associar/2
+
+{
+	"id": 152,
+	"nome": "Turma D",
+	"codigo": "TA2000",
+	"alunos": [],
+	"professor": "lucas morais"
+}
+
+MatricularAluno | localhost:8080/turma/102/matricular/2
+
+{
+	"id": 152,
+	"nome": "Turma D",
+	"codigo": "TA2000",
+	"alunos": [
+		{
+			"nome": "vitor rafael"
+		}
+	],
+	"professor": "lucas morais"
+}
+
+DesassociarProfessor | localhost:8080/turma/152/remover-professor
+
+{
+	"id": 152,
+	"nome": "Turma D",
+	"codigo": "TA2000",
+	"alunos": [
+		{
+			"id": 1,
+			"nome": "vitor rafael",
+			"cpf": "333.654.888-18",
+			"matricula": 20213332,
+			"genero": "masculino",
+			"curso": "engenharia-elétrica",
+			"dataNascimento": "1998-09-23T00:00:00.000+00:00",
+			"status": true
+		}
+	],
+	"professor": null,
+	"status": true
+}
+
+DesmatricularAluno | localhost:8080/turma/152/desmatricular/1
+
+{
+	"id": 152,
+	"nome": "Turma D",
+	"codigo": "TA2000",
+	"alunos": [],
+	"professor": null,
+	"status": true
+}
+
+InativarTurma | localhost:8080/turma/inactivate/152
+
+{
+	"id": 152,
+	"nome": "Turma D",
+	"codigo": "TA2000",
+	"alunos": [],
+	"professor": null,
+	"status": false
+}
