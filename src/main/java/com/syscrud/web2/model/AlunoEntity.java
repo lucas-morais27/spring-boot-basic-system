@@ -1,14 +1,12 @@
 package com.syscrud.web2.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 
 import com.syscrud.web2.dto.alunoDTO;
 
@@ -28,6 +26,10 @@ public class AlunoEntity {
     private String curso;
     private Date dataNascimento;
     private boolean status = true;
+
+    @ManyToMany(mappedBy = "alunos")
+    @JsonIgnore
+    private List<TurmaEntity> turmas;
 
     public void filterEmptyFields(alunoDTO aluno) {
         if (aluno.nome() != null && !aluno.nome().isEmpty()) {

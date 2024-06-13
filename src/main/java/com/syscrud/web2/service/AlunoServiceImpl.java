@@ -39,7 +39,7 @@ public class AlunoServiceImpl implements AlunoService {
         Optional<AlunoEntity> existingAluno = alunoRepository.findById(id);
         if (existingAluno.isPresent()) {
             AlunoEntity alunoEntity = existingAluno.get();
-            alunoEntity.filterEmptyFields(alunoDTO); // Assuming this method exists in AlunoEntity
+            alunoEntity.filterEmptyFields(alunoDTO);
             return alunoRepository.save(alunoEntity);
         }
         return null; // Or throw an exception

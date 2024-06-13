@@ -1,10 +1,13 @@
 package com.syscrud.web2.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.Date;
+import java.util.List;
 
 import com.syscrud.web2.dto.professorDTO;
 
@@ -13,6 +16,7 @@ import com.syscrud.web2.dto.professorDTO;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class ProfessorEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,6 +30,9 @@ public class ProfessorEntity {
     private float salario;
     private String disciplinaAssociada;
     private boolean status = true;
+
+    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    private List<TurmaEntity> turmas;
 
     public void filterEmptyFields(professorDTO professor) {
         if (professor.nome() != null && !professor.nome().isEmpty()) {

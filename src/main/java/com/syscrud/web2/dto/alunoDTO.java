@@ -1,5 +1,8 @@
 package com.syscrud.web2.dto;
-import com.syscrud.web2.model.ProfessorEntity;
+import com.syscrud.web2.model.AlunoEntity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.br.CPF;
@@ -7,7 +10,7 @@ import org.hibernate.validator.constraints.br.CPF;
 import java.util.Date;
 
 @Valid
-public record professorDTO(
+public record alunoDTO(
 
     Long id,
 
@@ -23,25 +26,17 @@ public record professorDTO(
     int matricula,
 
     @NotNull(message = "Gênero não pode ser nulo")
-    ProfessorEntity.Genero genero,
+    AlunoEntity.Genero genero,
 
-    @NotBlank(message = "Departamento não pode ser vazio")
-    @Size(min = 3, max = 50, message = "Departamento deve ter entre 3 e 50 caracteres")
-    String departamento,
+    @NotBlank(message = "Curso não pode ser vazio")
+    @Size(min = 3, max = 100, message = "Curso deve ter entre 3 e 100 caracteres")
+    String curso,
 
-    @NotNull(message = "Data de nascimento não pode ser nula")
+    @NotNull(message = "Data de nascimento não pode ser vazia")
     @Past(message = "Data de nascimento deve ser no passado")
     Date dataNascimento,
 
-    @Positive(message = "Salário deve ser um valor positivo")
-    float salario,
-
-    @NotBlank(message = "Disciplina associada não pode ser vazia")
-    @Size(min = 3, max = 100, message = "Departamento deve ter entre 3 e 100 caracteres")
-    String disciplinaAssociada,
-
     boolean status
-
     ) {
 
 }
