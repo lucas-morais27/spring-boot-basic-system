@@ -1,7 +1,5 @@
 package com.syscrud.web2.security;
 
-
-import com.syscrud.web2.model.UsuarioEntity;
 import com.syscrud.web2.repository.UsuarioRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

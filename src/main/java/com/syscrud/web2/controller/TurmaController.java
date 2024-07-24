@@ -46,7 +46,6 @@ public class TurmaController {
         }
     }
 
-
     @PostMapping
     public ResponseEntity<Object> postTurma(@Valid @RequestBody turmaDTO turmaDTO, BindingResult result) {
         if (result.hasErrors()) {
@@ -55,9 +54,21 @@ public class TurmaController {
         return ResponseEntity.status(HttpStatus.CREATED).body(turmaService.createTurma(turmaDTO));
     }
 
+    @PostMapping("/{turmaId}/matricular/{alunoId}")
+    public ResponseEntity<TurmaEntity> matricularAluno(@PathVariable Long turmaId, @PathVariable Long alunoId) {
+        Optional<TurmaEntity> turmaAtualizada = turmaService.matricularAluno(turmaId, alunoId);
+        return turmaAtualizada.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<TurmaEntity> putTurma(@PathVariable Long id, @RequestBody turmaDTO turmaDTO) {
         Optional<TurmaEntity> turmaAtualizada = Optional.ofNullable(turmaService.updateTurma(id, turmaDTO));
+        return turmaAtualizada.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{turmaId}/associar/{professorId}")
+    public ResponseEntity<TurmaEntity> associarProfessor(@PathVariable Long turmaId, @PathVariable Long professorId) {
+        Optional<TurmaEntity> turmaAtualizada = turmaService.associarProfessor(turmaId, professorId);
         return turmaAtualizada.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
@@ -75,21 +86,9 @@ public class TurmaController {
                 : ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
     }
 
-    @PostMapping("/{turmaId}/matricular/{alunoId}")
-    public ResponseEntity<TurmaEntity> matricularAluno(@PathVariable Long turmaId, @PathVariable Long alunoId) {
-        Optional<TurmaEntity> turmaAtualizada = turmaService.matricularAluno(turmaId, alunoId);
-        return turmaAtualizada.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
-
     @DeleteMapping("/{turmaId}/desmatricular/{alunoId}")
     public ResponseEntity<TurmaEntity> removerAluno(@PathVariable Long turmaId, @PathVariable Long alunoId) {
         Optional<TurmaEntity> turmaAtualizada = turmaService.removerAluno(turmaId, alunoId);
-        return turmaAtualizada.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
-    }
-
-    @PutMapping("/{turmaId}/associar/{professorId}")
-    public ResponseEntity<TurmaEntity> associarProfessor(@PathVariable Long turmaId, @PathVariable Long professorId) {
-        Optional<TurmaEntity> turmaAtualizada = turmaService.associarProfessor(turmaId, professorId);
         return turmaAtualizada.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 

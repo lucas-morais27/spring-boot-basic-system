@@ -1,14 +1,9 @@
-//package com.syscrud.web2.service;
-//
-//import com.syscrud.web2.model.UsuarioEntity;
-//import com.syscrud.web2.repository.UsuarioRepository;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.CommandLineRunner;
-//import org.springframework.security.crypto.password.PasswordEncoder;
-//import org.springframework.stereotype.Service;
-//
-//import static com.syscrud.web2.enuns.UserRole.ADMIN;
-//
+package com.syscrud.web2.test;
+
+/*
+    Para criar usuários afins de teste unitários.
+*/
+
 //@Service
 //public class UsuarioService implements CommandLineRunner {
 //
