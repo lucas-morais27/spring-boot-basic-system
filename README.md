@@ -16,6 +16,7 @@ A backend system designed to manage classes, students, and teachers. Built with 
 * **Secure Authentication:**  Spring Security with JWT tokens ensures user data is protected.
 * **Efficient Data Persistence:**  MySQL database for reliable data storage.
 * **RESTful API:**  Easy integration with frontend applications.
+* **Interactive Documentation:** API documentation generated with Swagger 3 makes the API easier to understand and use. Access documentation at: Offline
 
 ## Technologies Used 🛠️
 
@@ -26,6 +27,7 @@ A backend system designed to manage classes, students, and teachers. Built with 
 * **JWT (JSON Web Tokens):**  A secure and stateless way to handle user authentication.
 * **Maven:**  Project management and build automation tool.
 * **MySQL:**  Reliable and open-source relational database.
+* **Swagger 3:** Generates interactive API documentation, facilitating integration and use.
 * **Insomnia:**  Used for API testing and request validation.
 
 ## API Testing with Insomnia 🧪
